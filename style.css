@@ -1,0 +1,266 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 20px 40px;
+}
+
+.logo {
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: white;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 3px 0;
+  transition: transform 0.3s ease;
+}
+
+.hamburger.active .bar:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+main {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Mengatur wrapping saat layar lebih kecil */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#content {
+  flex: 3;
+}
+
+article {
+  padding: 20px;
+  background-color: #f2f2f2;
+  margin: 0px 10px 20px 10px; /* Memberi jarak antar artikel */
+}
+
+aside {
+  flex: 1;
+  max-width: 300px; /* Batasan lebar untuk aside */
+  padding: 20px;
+  height: fit-content;
+}
+
+.ads img {
+  max-width: 100%; /* Agar gambar di dalam aside tidak melebihi aside */
+  height: auto;
+  margin-bottom: 10px;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.slider-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  flex: 0 0 100%;
+  position: relative;
+}
+
+.slide img {
+  width: 100%;
+  height: 500px;
+  /* cover */
+  object-fit: cover;
+}
+
+.slide-text {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  margin-right: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 36px;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.slider-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.slider-control {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.slider-indicators {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  background-color: #ccc;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.indicator.active {
+  background-color: #333;
+}
+
+.pagination {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin-left: 5px;
+  margin-bottom: 20px;
+}
+
+.page {
+  display: inline-block;
+  margin: 0 5px;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  text-decoration: none;
+  color: #333;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.page.active {
+  background-color: #ddd;
+  cursor: default;
+}
+
+.page:hover {
+  background-color: #ddd;
+}
+
+.subscribe form {
+  display: flex;
+  flex-direction: column;
+}
+
+.subscribe input[type="text"],
+.subscribe input[type="email"] {
+  padding: 10px 0;
+  margin-bottom: 15px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.subscribe input[type="text"]:focus,
+.subscribe input[type="email"]:focus {
+  border-color: #333;
+}
+
+.subscribe input[type="submit"] {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.subscribe input[type="submit"]:hover {
+  background-color: #444;
+}
+
+/* untuk layar lebih kecil */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: -webkit-fill-available;
+    background-color: #333;
+    text-align: center;
+    transition: all 0.5s ease;
+  }
+
+  .nav-links.active {
+    display: flex;
+    padding-bottom: 20px;
+    z-index: 1;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  main {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  article,
+  aside {
+    max-width: 100%; /* Menghapus batasan lebar saat layar lebih kecil */
+  }
+}
